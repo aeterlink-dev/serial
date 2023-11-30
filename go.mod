@@ -1,8 +1,16 @@
-module go.bug.st/serial
+module github.com/aeterlink-dev/go-serial-al
 
-go 1.17
+go 1.20
+
+replace (
+	github.com/aeterlink-dev/go-serial-al/enumrator => ./enumrator
+	github.com/aeterlink-dev/go-serial-al/portlist => ./portlist
+	github.com/aeterlink-dev/go-serial-al/serial => ./
+	github.com/aeterlink-dev/go-serial-al/unixutils => ./unixutils
+)
 
 require (
+	github.com/aeterlink-dev/go-serial-al/serial v0.0.0-00010101000000-000000000000
 	github.com/creack/goselect v0.1.2
 	github.com/stretchr/testify v1.8.4
 	golang.org/x/sys v0.19.0
