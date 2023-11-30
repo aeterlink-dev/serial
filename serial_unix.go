@@ -16,7 +16,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"go.bug.st/serial/unixutils"
+	"github.com/aeterlink-dev/go-serial-al/serial/unixutils"
 	"golang.org/x/sys/unix"
 )
 
