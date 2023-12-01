@@ -11,7 +11,7 @@ import (
 	"log"
 	"time"
 
-	"github.com/aeterlink-dev/go-serial-al/serial"
+	"github.com/aeterlink-dev/serial"
 )
 
 func ExampleGetSetModemBits() {

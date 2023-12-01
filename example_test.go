@@ -11,7 +11,7 @@ import (
 	"log"
 	"strings"
 
-	"github.com/aeterlink-dev/go-serial-al/serial"
+	"github.com/aeterlink-dev/serial"
 )
 
 // This example prints the list of serial ports and use the first one

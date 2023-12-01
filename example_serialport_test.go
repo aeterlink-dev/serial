@@ -10,7 +10,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/aeterlink-dev/go-serial-al/serial"
+	"github.com/aeterlink-dev/serial"
 )
 
 func ExampleSerialPort_SetMode() {
