@@ -34,6 +34,7 @@ const (
 	rs485RTSOnSend    = 1 << 1
 	rs485RTSAfterSend = 1 << 2
 	rs485RXDuringTX   = 1 << 4
+	rs485Tiocs        = 0x542f // unix.TIOCSRS485 is not supported on MacOS
 )
 
 // rs485_ioctl_opts is used to configure RS485 options in the driver
@@ -509,5 +510,5 @@ func (port *unixPort) enableRS485(config *RS485Config) error {
 		rs485.flags |= rs485RXDuringTX
 	}
 
-	return unix.IoctlSetPointerInt(port.handle, unix.TIOCSRS485, rs485.flags)
+	return unix.IoctlSetPointerInt(port.handle, rs485Tiocs, rs485.flags)
 }
