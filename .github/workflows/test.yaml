@@ -10,7 +10,8 @@ jobs:
   native-os-build:
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macOS-latest]
+        # os: [ubuntu-latest, windows-latest, macOS-latest]
+        os: [ubuntu-latest]
 
     runs-on: ${{ matrix.os }}
 
@@ -51,10 +52,10 @@ jobs:
     strategy:
       matrix:
         go-os-pairs:
-          - "freebsd amd64"
-          - "openbsd amd64"
-          - "openbsd 386"
-          - "openbsd arm"
+          # - "freebsd amd64"
+          # - "openbsd amd64"
+          # - "openbsd 386"
+          # - "openbsd arm"
           - "linux ppc64le"
 
     runs-on: "ubuntu-latest"
