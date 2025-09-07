@@ -1,5 +1,4 @@
 //go:build linux
-// +build linux
 
 package serial
 
@@ -28,7 +27,11 @@ func TestGetSerialStructOnFakeTty(t *testing.T) {
 	cmd := startSocatAndWaitForSetserialTest(t, ctx)
 	go cmd.Wait()
 
-	ser, err := GetSerialStruct("/tmp/faketty_setserial")
+	port, err := nativeOpen("/tmp/faketty", &Mode{})
+	require.NoError(t, err)
+	defer port.Close()
+	ser, err := port.GetSerialStruct()
+
 	// Note: socat's virtual TTY may not fully support TIOCGSERIAL.
 	// If not supported, skip the test (environment dependent).
 	if err != nil {
@@ -43,7 +46,10 @@ func TestSetSerialPortModeOnFakeTty(t *testing.T) {
 	cmd := startSocatAndWaitForSetserialTest(t, ctx)
 	go cmd.Wait()
 
-	err := SetSerialPortMode("/tmp/faketty_setserial", 0)
+	port, err := nativeOpen("/tmp/faketty", &Mode{})
+	require.NoError(t, err)
+	defer port.Close()
+	err = port.SetSerialPortMode(0)
 	// Note: socat's virtual TTY may not fully support TIOCSSERIAL.
 	// If not supported, skip the test (environment dependent).
 	if err != nil {
