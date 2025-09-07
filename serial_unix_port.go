@@ -7,6 +7,7 @@ type UnixPort interface {
 
 	GetSerialStruct() (*LinuxCSerialStruct, error)
 	SetSerialPortMode(portMode uint32) error
+	EnableRS485(config *LinuxRS485Config) error
 }
 
 // UnixOpen opens the serial port using the specified modes
